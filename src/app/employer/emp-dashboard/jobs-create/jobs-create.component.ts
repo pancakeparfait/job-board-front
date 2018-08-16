@@ -18,5 +18,4 @@ export class JobsCreateComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -14,12 +14,8 @@ import { SharedModule } from '../shared/shared.module'
     MaterialModule,
     EmployerRoutingModule,
     SharedModule
-
   ],
-
   exports: [JobsCreateComponent],
-
   declarations: [EmpDashboardComponent,JobsCreateComponent]
-
 })
 export class EmployerModule { }

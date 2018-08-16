@@ -10,17 +10,18 @@ export class NavBarComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-  showEmpDash(){
+  ngOnInit() {
+  }
+
+  showEmpDash() {
     if (this.auth.hasToken() && !this.auth.isStudent()){
       return true;
     } else {
       return false;
     }
   }
-  logout (){
+
+  logout () {
     this.auth.logout()
   }
-  ngOnInit() {
-  }
-
 }

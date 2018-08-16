@@ -8,12 +8,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-
   getJobs(){
     return this.http.get("http://localhost:3000/job")
   }
+
   // getUsers() {
   //   return this.http.get('https://jsonplaceholder.typicode.com/users')
   // }
-
 }
