@@ -38,7 +38,7 @@ describe('EmpDashboardComponent (shallow tests)', () => {
         host: { '(click)': 'onClick()' }
     })
     class StubRouterLinkDirective {
-        @Input() routerlink: string;
+        @Input('routerLink') routerlink: string;
         navigatedTo: any = null;
 
         onClick() {
