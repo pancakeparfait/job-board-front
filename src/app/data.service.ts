@@ -8,8 +8,8 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getJobs(){
-    return this.http.get("http://localhost:3000/job")
+  getJobs() {
+    return this.http.get('http://localhost:3000/job');
   }
 
   // getUsers() {

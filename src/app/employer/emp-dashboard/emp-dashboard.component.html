@@ -4,12 +4,10 @@
 <div>
   <mat-card class= "eachJob" *ngFor="let job of jobs$">
     <a routerLink="/details/{{job.id}}">{{ job.title }}</a>
-
-    
-      <mat-card-content>{{ job.job_title }}</mat-card-content>
-      <mat-card-content>{{ job.job_description }}</mat-card-content>
-      <mat-card-content>{{ job.job_type }}</mat-card-content>
-      <mat-card-content>{{ job.company_name }}</mat-card-content>
+    <mat-card-content>{{ job.job_title }}</mat-card-content>
+    <mat-card-content>{{ job.job_description }}</mat-card-content>
+    <mat-card-content>{{ job.job_type }}</mat-card-content>
+    <mat-card-content>{{ job.company_name }}</mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="Update">Update</button>
       <button mat-raised-button (click)="OpenModal()">Details</button>

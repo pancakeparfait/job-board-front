@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"; 
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../auth.service';
 
@@ -9,33 +9,33 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string = '';
-  password: string = '';
-  token: any
+  email = '';
+  password = '';
+  token: any;
 
   constructor(public authService: AuthService, private _router: Router) { }
 
- handleSubmite(){
+ handleSubmite() {
    this.authService.logine(this.email, this.password)
-   .subscribe((res: any) => { 
-    this.token = res.sessionToken
-    sessionStorage.setItem('token', this.token)
-    this._router.navigate(['/jobposts'])
-  console.log(this.token)
+   .subscribe((res: any) => {
+    this.token = res.sessionToken;
+    sessionStorage.setItem('token', this.token);
+    this._router.navigate(['/jobposts']);
+  console.log(this.token);
   },
   err => console.log(err)
-   )}
+   ); }
 
-   handleSubmits(){
+   handleSubmits() {
     this.authService.logins(this.email, this.password)
-    .subscribe((res: any) => { 
-     this.token = res.sessionToken
-     sessionStorage.setItem('token', this.token)
-     this._router.navigate(['/jobposts'])
-   console.log(this.token)
+    .subscribe((res: any) => {
+     this.token = res.sessionToken;
+     sessionStorage.setItem('token', this.token);
+     this._router.navigate(['/jobposts']);
+   console.log(this.token);
    },
    err => console.log(err)
-    )}
+    ); }
 
 
 

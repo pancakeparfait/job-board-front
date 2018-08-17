@@ -1,10 +1,10 @@
-import { of } from "rxjs/internal/observable/of";
-import { TestBed, ComponentFixture } from "@angular/core/testing";
-import { Component, Directive, Input } from "@angular/core";
+import { of } from 'rxjs/internal/observable/of';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { Component, Directive, Input } from '@angular/core';
 
-import { EmpDashboardComponent } from "./emp-dashboard.component";
-import { DataService } from "../../data.service";
-import { MaterialModule } from "../../material.module";
+import { EmpDashboardComponent } from './emp-dashboard.component';
+import { DataService } from '../../data.service';
+import { MaterialModule } from '../../material.module';
 
 describe('EmpDashboardComponent (unit tests)', () => {
     let component: EmpDashboardComponent;
@@ -26,7 +26,7 @@ describe('EmpDashboardComponent (unit tests)', () => {
         it('calls dataService.getJobs()', () => {
             expect(mockDataService.getJobs).toHaveBeenCalled();
         });
-    })
+    });
 });
 
 describe('EmpDashboardComponent (shallow tests)', () => {
@@ -37,12 +37,12 @@ describe('EmpDashboardComponent (shallow tests)', () => {
         selector: '[routerLink]',
         host: { '(click)': 'onClick()' }
     })
-    class RouterLinkDirectiveStub {
-        @Input('routerLink') linkParams: any;
+    class StubRouterLinkDirective {
+        @Input() routerlink: string;
         navigatedTo: any = null;
 
         onClick() {
-            this.navigatedTo = this.linkParams;
+            this.navigatedTo = this.routerlink;
         }
     }
 
@@ -59,7 +59,7 @@ describe('EmpDashboardComponent (shallow tests)', () => {
     class FakeJobsCreateComponent { }
 
     beforeEach(() => {
-        mockDataService = jasmine.createSpyObj('DataService', ['getJobs'])
+        mockDataService = jasmine.createSpyObj('DataService', ['getJobs']);
         mockDataService.getJobs.and.returnValue(of([]));
 
         TestBed.configureTestingModule({
@@ -68,7 +68,7 @@ describe('EmpDashboardComponent (shallow tests)', () => {
             ],
             declarations: [
                 EmpDashboardComponent,
-                RouterLinkDirectiveStub,
+                StubRouterLinkDirective,
                 FakeJobDetailsComponent,
                 FakeJobsCreateComponent
             ],

@@ -15,7 +15,7 @@ const sharedRoutes: Routes = [
     {path: 'employerSignup', component: SignupComponent},
     {path: 'studentLogin', component: LoginComponent},
     {path: 'employerLogin', component: LoginComponent},
-    {path:'**', component: PagenotfoundComponent} //this path needs to be at the bottom for the 404 route to work
+    {path: '**', component: PagenotfoundComponent} // this path needs to be at the bottom for the 404 route to work
 ];
 
 @NgModule({

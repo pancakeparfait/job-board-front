@@ -5,7 +5,7 @@ import { EmployerRoutingModule} from './employer-routing.module';
 import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
 import { JobsCreateComponent } from './emp-dashboard/jobs-create/jobs-create.component';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { SharedModule } from '../shared/shared.module'
     SharedModule
   ],
   exports: [JobsCreateComponent],
-  declarations: [EmpDashboardComponent,JobsCreateComponent]
+  declarations: [EmpDashboardComponent, JobsCreateComponent]
 })
 export class EmployerModule { }

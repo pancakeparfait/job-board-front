@@ -4,7 +4,7 @@ import {MaterialModule} from '../material.module';
 
 @NgModule({
     imports: [
-        StudentRoutingModule,        
+        StudentRoutingModule,
         MaterialModule
     ],
     exports: [

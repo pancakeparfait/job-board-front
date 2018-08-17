@@ -9,37 +9,37 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   user = {
-  first_name:'',
-  last_name:'',
-  company_name:'',
-  email:'',
-  password:'',
-  confirmPass:''
-  }
-  token: any
+    first_name: '',
+    last_name: '',
+    company_name: '',
+    email: '',
+    password: '',
+    confirmPass: ''
+  };
+  token: any;
 
   constructor(public authService: AuthService, private _router: Router) { }
-
-  Signupe () {
-    this.authService.signupe(this.user).subscribe((res: any) => { 
-      this.token = res.sessionToken
-      sessionStorage.setItem('token', this.token)
-      this._router.navigate(['/jobposts'])
-    },
-    err => console.log(err)
-  )
-}
-  Signups () {
-    this.authService.signups(this.user).subscribe ( (res: any) => {
-      this.token = res.sessionToken
-      sessionStorage.setItem('token', this.token)
-      this._router.navigate(['/jobposts'])
-    },
-    err => console.log(err)
-  )
-  }
 
   ngOnInit() {
   }
 
+  Signupe () {
+    this.authService.signupe(this.user).subscribe((res: any) => {
+      this.token = res.sessionToken;
+      sessionStorage.setItem('token', this.token);
+      this._router.navigate(['/jobposts']);
+    },
+    err => console.log(err)
+    );
+  }
+
+  Signups () {
+    this.authService.signups(this.user).subscribe ( (res: any) => {
+      this.token = res.sessionToken;
+      sessionStorage.setItem('token', this.token);
+      this._router.navigate(['/jobposts']);
+    },
+    err => console.log(err)
+    );
+  }
 }

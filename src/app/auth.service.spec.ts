@@ -29,13 +29,13 @@ describe('AuthService', () => {
 
   describe('.logine()', () => {
 
-    beforeEach(() =>{
+    beforeEach(() => {
 
     });
 
     it('calls post with the correct url', () => {
-      const email: string = 'email@test.com';
-      const password: string = 'passw0rd';
+      const email = 'email@test.com';
+      const password = 'passw0rd';
 
       service.logine(email, password).subscribe();
 

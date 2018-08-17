@@ -10,7 +10,7 @@ describe('AuthComponent', () => {
   let mockAuthService;
 
   beforeEach(async(() => {
-    mockAuthService = jasmine.createSpyObj('AuthService', ['logout'])
+    mockAuthService = jasmine.createSpyObj('AuthService', ['logout']);
     TestBed.configureTestingModule({
       imports: [ MaterialModule ],
       declarations: [ AuthComponent ],

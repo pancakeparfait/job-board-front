@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
   }
 
   showEmpDash() {
-    if (this.auth.hasToken() && !this.auth.isStudent()){
+    if (this.auth.hasToken() && !this.auth.isStudent()) {
       return true;
     } else {
       return false;
@@ -22,6 +22,6 @@ export class NavBarComponent implements OnInit {
   }
 
   logout () {
-    this.auth.logout()
+    this.auth.logout();
   }
 }

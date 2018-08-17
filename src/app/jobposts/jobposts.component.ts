@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class JobpostsComponent implements OnInit {
 
-  constructor(){ }
+  constructor() { }
 
   ngOnInit() {}
 }

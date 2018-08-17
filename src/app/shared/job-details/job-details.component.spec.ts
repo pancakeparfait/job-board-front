@@ -9,11 +9,11 @@ describe('JobDetailsComponent', () => {
   let mockMatDialog;
 
   beforeEach(async(() => {
-    mockMatDialog = jasmine.createSpyObj('MatDialog', ['open'])
+    mockMatDialog = jasmine.createSpyObj('MatDialog', ['open']);
 
     TestBed.configureTestingModule({
       declarations: [ JobDetailsComponent ],
-      providers:[
+      providers: [
         { provide: MatDialog, useValue: mockMatDialog }
       ]
     })
