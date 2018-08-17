@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   userType: string = '';
   sessionToken: string = 'test';
 
-
+  constructor(private http: HttpClient, private _router: Router) { }
  
   hasToken() {
     if (this.sessionToken) {
@@ -44,8 +44,6 @@ export class AuthService {
       return false;
     }
   }
-
-  constructor(private http: HttpClient, private _router: Router) { }
 
   getToken() {
     return localStorage.getItem('token')
