@@ -1,9 +1,10 @@
 import { of } from "rxjs/internal/observable/of";
 import { TestBed, ComponentFixture } from "@angular/core/testing";
-import { NO_ERRORS_SCHEMA, Component, Directive } from "@angular/core";
+import { Component, Directive, Input } from "@angular/core";
 
 import { EmpDashboardComponent } from "./emp-dashboard.component";
 import { DataService } from "../../data.service";
+import { MaterialModule } from "../../material.module";
 
 describe('EmpDashboardComponent (unit tests)', () => {
     let component: EmpDashboardComponent;
@@ -32,38 +33,48 @@ describe('EmpDashboardComponent (shallow tests)', () => {
     let fixture: ComponentFixture<EmpDashboardComponent>;
     let mockDataService;
 
-    @Component({
-        selector: 'mat-card',
-        template: `<div></div>`
-    })
-    class FakeMatCard { }
-
-    @Component({
-        selector: 'mat-card-title',
-        template: `<div></div>`
-    })
-    class FakeMatCardTitle { }
-
     @Directive({
-        selector: '[routerLink]'
+        selector: '[routerLink]',
+        host: { '(click)': 'onClick()' }
     })
-    class FakeRouterLinkDirective { }
+    class RouterLinkDirectiveStub {
+        @Input('routerLink') linkParams: any;
+        navigatedTo: any = null;
+
+        onClick() {
+            this.navigatedTo = this.linkParams;
+        }
+    }
+
+    @Component({
+        selector: 'app-job-details',
+        template: `<div></div>`
+    })
+    class FakeJobDetailsComponent { }
+
+    @Component({
+        selector: 'app-jobs-create',
+        template: `<div></div>`
+    })
+    class FakeJobsCreateComponent { }
 
     beforeEach(() => {
         mockDataService = jasmine.createSpyObj('DataService', ['getJobs'])
         mockDataService.getJobs.and.returnValue(of([]));
 
         TestBed.configureTestingModule({
+            imports: [
+                MaterialModule
+            ],
             declarations: [
                 EmpDashboardComponent,
-                FakeMatCard,
-                FakeMatCardTitle,
-                FakeRouterLinkDirective
+                RouterLinkDirectiveStub,
+                FakeJobDetailsComponent,
+                FakeJobsCreateComponent
             ],
             providers: [
                 { provide: DataService, useValue: mockDataService }
-            ],
-            schemas: [NO_ERRORS_SCHEMA]
+            ]
         });
         fixture = TestBed.createComponent(EmpDashboardComponent);
     });
